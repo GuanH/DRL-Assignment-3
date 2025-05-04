@@ -57,7 +57,8 @@ class Agent(object):
         self.state_hist = np.empty((16, 128, 128), dtype=np.float32)
         self.first = True
         self.cur_state = 0
-        self.dqn = DQN((128,128), "cuda" if torch.cuda.is_available() else "cpu")
+        # self.dqn = DQN((128,128), "cuda" if torch.cuda.is_available() else "cpu")
+        self.dqn = DQN((128,128), "cpu")
 
     def act(self, observation):
         if self.first:
