@@ -36,7 +36,7 @@ class DQN:
     def __init__(self, state_size, device):
         self.device = device
         self.learning_qnet = QNet()
-        self.learning_qnet.load_state_dict(torch.load("model1.pth", weights_only=False))
+        self.learning_qnet.load_state_dict(torch.load("model1.pth", weights_only=False, map_location=torch.device('cpu')))
         self.learning_qnet.to(device)
 
     def get_action(self, state):
