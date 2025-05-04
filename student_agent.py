@@ -41,7 +41,7 @@ class DQN:
 
     def get_action(self, state):
         if np.random.random() <= 0.05:
-            return np.random.randint(0, self.action_size)
+            return np.random.randint(0, 12)
         with torch.no_grad():
             state = torch.tensor(state[None,:], dtype=torch.float32, device=self.device)
             v, a = self.learning_qnet(state)
